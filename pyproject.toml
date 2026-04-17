@@ -1,0 +1,41 @@
+[project]
+authors = [{name = "Tyler Erickson", email = "tyler@vorgeo.com"}]
+name = "TEMPLATE-rle-assessment"
+requires-python = ">= 3.11"
+version = "0.1.9"
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "linux-64"]
+
+[tool.pixi.pypi-dependencies]
+# For local development use the editable paths below:
+# iucn_get_data = { path = "../iucn-get-data", editable = true }
+# rle_python_gee = { path = "../rle-python-gee", editable = true }
+
+# For production use:
+iucn_get_data = { git = "https://github.com/RLE-Assessment/iucn-get-data" }
+rle_python_gee = { git = "https://github.com/RLE-Assessment/rle-python-gee" }
+
+wkls = ">=1.1.0, <2"
+
+[tool.pixi.tasks]
+tinytex-install = "quarto install tinytex"
+quarto-render = "quarto render"
+
+[tool.pixi.dependencies]
+python = "==3.11"
+jupyter = ">=1.1.1,<2"
+quarto = ">=1.8.27,<2"
+pyyaml = ">=6.0.3,<7"
+geopandas = ">=1.1.3,<2"
+ipykernel = ">=7.2.0,<8"
+pytest = ">=9.0.2,<10"
+libgdal-arrow-parquet = ">=3.12.3,<4"
+
+[tool.pixi.activation.env]
+GOOGLE_CLOUD_PROJECT = "goog-rle-assessments"

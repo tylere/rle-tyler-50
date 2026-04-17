@@ -1,0 +1,26 @@
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+# Quarto files
+/.quarto/
+/_site/
+/_book/
+/site_libs/
+_freeze/site_libs/
+**/*.quarto_ipynb
+**/execute-results/
+templates/assessment.html
+templates/assessment_files/*
+templates/crit_b.html
+templates/crit_b_files/*
+
+# uv
+uv.lock
+
+# Python files
+*.pyc
+__pycache__/
+
+# AOO grid cache
+.cache/
